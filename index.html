@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños Aylin ✨</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="music-control" class="music-btn" title="Activar música">
+    <span class="music-icon">🎵</span>
+  </div>
+  <audio id="bg-music" loop preload="auto">
+    <source src="music/musicaFondo.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ===== COVER ===== -->
+  <section id="cover">
+    <canvas id="fireworks-canvas"></canvas>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="cover-bg"></div>
+    <div class="sparkles-container" id="sparkles-container"></div>
+    <div class="cover-content">
+      <p class="cover-label">🎉 Para ti</p>
+      <h1 class="cover-title">Feliz Cumpleaños</h1>
+      <h2 class="cover-name">Aylin</h2>
+      <div class="cover-divider">✦ ✦ ✦</div>
+      <p class="cover-subtitle">Toca el botón para abrir tu sorpresa</p>
+      <button id="openBtn" class="btn-primary">Abrir sorpresa ✨</button>
+    </div>
+    <div id="final-message" class="final-message hidden">
+      <div class="final-backdrop"></div>
+      <div class="final-content">
+        <div class="final-stars">✨ 💫 ✨</div>
+        <h2 class="final-title">Para la persona más hermosa e impresionante del universo...</h2>
+        <div class="final-divider">──── ✦ ────</div>
+        <p class="final-text">Esta sorpresa fue creada especialmente para ti, porque hay personas que merecen sentirse especiales, y tú eres una de ellas.</p>
+        <p class="final-text">Espero que cada palabra, cada efecto y cada detalle de esta página haya logrado sacarte una sonrisa y recordarte lo increíblemente valiosa que eres. El mundo es un lugar más bonito porque tú estás en él, y hoy celebramos no solo tu cumpleaños, sino también la luz única que llevas dentro.</p>
+        <p class="final-text">Que la vida te siga regalando momentos inolvidables, que tus sueños se cumplan uno a uno, y que nunca olvides lo especial que eres. Sigue brillando, sigue soñando, sigue siendo esa persona maravillosa que ilumina a quienes te rodean.</p>
+        <p class="final-text">Nunca dejes de sonreír, porque tu sonrisa hace mejor este mundo. Eres única, eres valiosa, eres simplemente extraordinaria.</p>
+        <div class="final-closing">
+          <p>Feliz Cumpleaños, Aylin. 💫</p>
+          <p class="final-signature">Con todo mi cariño y admiración</p>
+        </div>
+        <div class="final-hearts" id="final-hearts"></div>
+        <button id="final-close-btn" class="btn-primary final-btn">Volver a empezar ✨</button>
+      </div>
+    </div>
+  </section>
+  <section id="letter-section">
+    <canvas id="letter-fireworks" class="letter-canvas"></canvas>
+    <canvas id="letter-confetti" class="letter-canvas"></canvas>
+    <div class="letter-bg"></div>
+    <div class="letter-wrapper">
+      <div class="envelope" id="envelope">
+        <div class="envelope-flap" id="envelope-flap">
+          <div class="flap-triangle"></div>
+        </div>
+        <div class="envelope-body">
+          <div class="envelope-seal">💌</div>
+        </div>
+        <p class="envelope-hint">Toca la carta para abrirla ✨</p>
+      </div>
+      <div class="letter-paper" id="letter-paper">
+        <div class="letter-inner">
+          <p class="letter-date">18 de mayo de 2026</p>
+          <p class="letter-greeting">Querida Aylin,</p>
+          <div class="letter-body">
+            <p>Hoy es un día muy especial: tu cumpleaños. Aunque no tengo el placer de conocerte en persona y literal no se nada de ti, pero quise crear este pequeño detalle con mucho cariño para desearte lo mejor en este nuevo año de vida que comienzas. Hoy el mundo celebra un año más de tu existencia, y eso siempre es motivo de alegría y esperanza.</p>
+            <p>Los cumpleaños tienen algo verdaderamente mágico. Son como una página en blanco que se abre ante nosotros, un nuevo comienzo lleno de infinitas posibilidades y sueños por cumplir. En este nuevo ciclo que hoy empiezas, espero de corazón que cada amanecer traiga consigo una razón para sonreír, que encuentres belleza en las pequeñas cosas de la vida y que la felicidad te acompañe en cada paso que des. Que cada experiencia, buena o mala, te enseñe algo valioso y te haga crecer como persona.</p>
+            <p>Que este nuevo viaje alrededor del sol esté lleno de aventuras increíbles, metas que cumplas una a una, y personas maravillosas que sumen a tu vida y te hagan crecer. Que tengas la valentía de perseguir cada uno de tus sueños sin miedo, y la sabiduría para disfrutar cada instante del camino, porque la vida se compone de esos pequeños momentos que atesoramos para siempre. No tengas miedo de brillar con luz propia, porque el mundo necesita tu esencia única e irrepetible.</p>
+            <p>Que Dios siempre te bendiga, te guíe y te proteja en cada paso de tu camino. Que nunca te falte salud, amor, alegría y buenas compañías. Que la luz divina ilumine siempre tu camino, te llene de paz y prosperidad, y te conceda la sabiduría para valorar cada bendición que llegue a tu vida.</p>
+            <p>Espero que este pequeño gesto logre sacarte una sonrisa en tu día. Disfrútalo al máximo, porque realmente te lo mereces. Recuerda siempre lo valiosa, especial y única que eres. Tienes un brillo que ilumina a quienes tienen la dicha de cruzarse en tu camino, aunque sea desde la distancia.</p>
+          </div>
+          <p class="letter-closing">Feliz cumpleaños, Aylin. Que este sea el mejor de tus años y que vengan muchos más llenos de dicha, amor y prosperidad. Que tu corazón siempre encuentre motivos para celebrar la vida.</p>
+          <p class="letter-signature">Con mucho cariño y admiración desde la distancia ✨</p>
+        </div>
+        <button id="continueBtn" class="btn-secondary">Continuar →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SURPRISES ===== -->
+  <section id="surprises-section">
+    <div class="surprises-bg"></div>
+    <div class="surprises-container">
+      <h2 class="surprises-title">🎁 Tus 6 Sorpresas</h2>
+      <p class="surprises-subtitle">Toca cada caja para descubrir tu regalo</p>
+      <div class="surprises-grid" id="surprises-grid">
+        <div class="surprise-card" data-index="0">
+          <div class="card-inner">
+            <div class="card-number">01</div>
+            <div class="card-icon">✨</div>
+            <div class="card-label">Lluvia de Estrellas</div>
+          </div>
+        </div>
+        <div class="surprise-card" data-index="1">
+          <div class="card-inner">
+            <div class="card-number">02</div>
+            <div class="card-icon">💕</div>
+            <div class="card-label">Corazones Flotantes</div>
+          </div>
+        </div>
+        <div class="surprise-card" data-index="2">
+          <div class="card-inner">
+            <div class="card-number">03</div>
+            <div class="card-icon">🎈</div>
+            <div class="card-label">Globos de Colores</div>
+          </div>
+        </div>
+        <div class="surprise-card" data-index="3">
+          <div class="card-inner">
+            <div class="card-number">04</div>
+            <div class="card-icon">🌸</div>
+            <div class="card-label">Flores Primaverales</div>
+          </div>
+        </div>
+        <div class="surprise-card" data-index="4">
+          <div class="card-inner">
+            <div class="card-number">05</div>
+            <div class="card-icon">🦋</div>
+            <div class="card-label">Mariposas de Luz</div>
+          </div>
+        </div>
+        <div class="surprise-card surprise-special" data-index="5">
+          <div class="card-inner">
+            <div class="card-number">06</div>
+            <div class="card-icon">🎂</div>
+            <div class="card-label">¡Tarta Sorpresa!</div>
+            <div class="card-badge">ESPECIAL</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SURPRISE MODAL ===== -->
+  <div id="surprise-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-body" id="modal-body">
+      </div>
+    </div>
+  </div>
+
+  <script src="js/effects.js"></script>
+  <script src="js/surprises.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
