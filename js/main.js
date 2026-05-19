@@ -133,28 +133,59 @@ function goToCoverWithFinal() {
   showFinalMessage();
 }
 
+let finalFireworksCleanup = null;
+let finalConfettiCleanup = null;
+
 function showFinalMessage() {
   const el = document.getElementById('final-message');
   el.classList.remove('hidden');
+  if (typeof initFireworks === 'function') {
+    finalFireworksCleanup = initFireworks('final-fireworks');
+  }
+  if (typeof initConfetti === 'function') {
+    finalConfettiCleanup = initConfetti('final-confetti');
+  }
   triggerConfettiBurst();
-  for (let i = 0; i < 5; i++) {
-    setTimeout(() => triggerConfettiBurst(), (i + 1) * 400);
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => {
+      const canvas = document.getElementById('final-confetti');
+      if (canvas) {
+        const rect = canvas.getBoundingClientRect();
+        confettiBurst(
+          rect.width / 2 + (Math.random() - 0.5) * rect.width * 0.6,
+          rect.height / 3 + (Math.random() - 0.5) * rect.height * 0.4,
+          40 + Math.floor(Math.random() * 30)
+        );
+        fireworkBurst(
+          rect.width / 2 + (Math.random() - 0.5) * rect.width * 0.5,
+          rect.height / 3 + (Math.random() - 0.5) * rect.height * 0.3,
+          25 + Math.floor(Math.random() * 20)
+        );
+      }
+    }, (i + 1) * 500);
   }
   spawnHearts();
   const closeBtn = document.getElementById('final-close-btn');
   if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
+    closeBtn.onclick = () => {
+      cleanupFinalEffects();
       el.classList.add('hidden');
       resetPage();
-    });
+    };
   }
   const backdrop = el.querySelector('.final-backdrop');
   if (backdrop) {
-    backdrop.addEventListener('click', () => {
+    backdrop.onclick = () => {
+      cleanupFinalEffects();
       el.classList.add('hidden');
       resetPage();
-    });
+    };
   }
+}
+
+function cleanupFinalEffects() {
+  if (finalFireworksCleanup) { finalFireworksCleanup(); finalFireworksCleanup = null; }
+  if (finalConfettiCleanup) { finalConfettiCleanup(); finalConfettiCleanup = null; }
 }
 
 function resetPage() {

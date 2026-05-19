@@ -305,9 +305,13 @@ section {
   z-index: 1;
   max-width: 680px;
   width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
   text-align: center;
   padding: 3rem 2.5rem;
   animation: finalSlideUp 1.2s ease-out;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pink) transparent;
 }
 
 .final-content::before {
@@ -429,9 +433,15 @@ section {
 }
 
 @media (max-width: 768px) {
-  .final-content { padding: 2rem 1.5rem; }
+  .final-content { padding: 2rem 1.5rem; max-height: 80vh; }
   .final-text { font-size: 0.95rem; line-height: 1.7; }
-  .final-message { padding: 1rem; }
+  .final-message { padding: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  .final-content { padding: 1.5rem 1rem; max-height: 75vh; }
+  .final-title { font-size: 1.3rem; }
+  .final-text { font-size: 0.9rem; }
 }
 
 .letter-canvas {
@@ -441,6 +451,16 @@ section {
   height: 100%;
   pointer-events: none;
   z-index: 1;
+}
+
+#final-fireworks,
+#final-confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 499;
 }
 
 /* ============ LETTER ============ */

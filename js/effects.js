@@ -1,5 +1,5 @@
-let fireworksRAF = null;
-let confettiRAF = null;
+let fireworksInstances = new Map();
+let confettiInstances = new Map();
 
 // ===== SPARKLES (cover background) =====
 function initSparkles(containerId, count = 50) {
@@ -170,14 +170,19 @@ function initFireworks(canvasId) {
     hue = (hue + 0.5) % 360;
   }
 
+  let rafId;
   function loop() {
     updateFireworks();
     drawFireworks();
-    fireworksRAF = requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
 
   loop();
-  return () => { if (fireworksRAF) cancelAnimationFrame(fireworksRAF); };
+  fireworksInstances.set(canvasId, rafId);
+  return () => {
+    if (rafId) { cancelAnimationFrame(rafId); }
+    fireworksInstances.delete(canvasId);
+  };
 }
 
 let burstParticles = [];
@@ -254,6 +259,7 @@ function initConfetti(canvasId) {
     particles.push(new ConfettiParticle(true));
   }
 
+  let rafId;
   function loop() {
     ctx.clearRect(0, 0, w, h);
     particles.forEach(p => {
@@ -280,11 +286,15 @@ function initConfetti(canvasId) {
       ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
       ctx.restore();
     }
-    confettiRAF = requestAnimationFrame(loop);
+    rafId = requestAnimationFrame(loop);
   }
 
   loop();
-  return () => { if (confettiRAF) cancelAnimationFrame(confettiRAF); };
+  confettiInstances.set(canvasId, rafId);
+  return () => {
+    if (rafId) { cancelAnimationFrame(rafId); }
+    confettiInstances.delete(canvasId);
+  };
 }
 
 // ===== CONFETTI BURST (for special moments) =====
